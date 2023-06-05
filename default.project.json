@@ -1,0 +1,13 @@
+{
+  "name": "roact-modal-manager",
+  "tree": {
+      "$className": "DataModel",
+      "ReplicatedStorage": {
+          "$className": "ReplicatedStorage",
+          "$path": "Packages",
+          "RoactModalManager": {
+              "$path": "src"
+          }
+      }
+  }
+}
