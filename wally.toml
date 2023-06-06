@@ -6,3 +6,5 @@ realm = "shared"
 
 [dependencies]
 React = "core-packages/react@17.0.1-rc.19"
+LuauPolyfill = "jsdotlua/luau-polyfill@1.2.3"
+Promise = "evaera/promise@4.0.0"
