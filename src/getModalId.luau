@@ -4,13 +4,13 @@ local MODAL_ID_SYMBOL = Symbol("RoactModalId")
 
 local nextId = 0
 
-local function getUuid()
+local function getNextId()
 	return `_react_modal_{nextId}`
 end
 
 local function getModalId(modal): string
 	if not modal[MODAL_ID_SYMBOL] then
-		modal[MODAL_ID_SYMBOL] = getUuid()
+		modal[MODAL_ID_SYMBOL] = getNextId()
 	end
 
 	return modal[MODAL_ID_SYMBOL]
