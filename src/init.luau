@@ -12,6 +12,7 @@ return table.freeze({
 
 	ModalDef = require(script.ModalDef),
 	Provider = require(script.ModalProvider),
+	Context = require(script.ModalContext),
 	useModal = require(script.useModal),
 	reducer = require(script.reducer),
 
