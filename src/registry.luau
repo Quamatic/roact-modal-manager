@@ -17,7 +17,7 @@ local function unregister(id: string)
 	modalRegistry[id] = nil
 end
 
-local function isModalRegistered(id: string)
+local function isModalRegisteredAndMounted(id: string)
 	return modalRegistry[id] and alreadyMounted:has(id)
 end
 
@@ -41,7 +41,7 @@ return {
 	register = register,
 	unregister = unregister,
 	getModal = getModal,
-	isModalRegistered = isModalRegistered,
+	isModalRegisteredAndMounted = isModalRegisteredAndMounted,
 	isRegistered = isRegistered,
 	mount = mount,
 	unmount = unmount,

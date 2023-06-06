@@ -3,7 +3,7 @@ local LuauPolyfill = require(script.Parent.Parent.LuauPolyfill)
 local Object, Array, console = LuauPolyfill.Object, LuauPolyfill.Array, LuauPolyfill.console
 
 local registry = require(script.Parent.registry)
-local isModalRegistered = registry.isModalRegistered
+local isModalRegisteredAndMounted = registry.isModalRegisteredAndMounted
 local getModal = registry.getModal
 
 local ModalContext = require(script.Parent.ModalContext)
@@ -17,7 +17,7 @@ local function ModalPlaceholder()
 	end)
 
 	Array.forEach(visibleModalIds, function(id)
-		if not isModalRegistered(id) then
+		if not isModalRegisteredAndMounted(id) then
 			console.warn(
 				`No modal found for id: ${id}. Please check the id or if it is registered or declared via Roact.`
 			)
