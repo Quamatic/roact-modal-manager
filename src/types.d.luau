@@ -1,3 +1,7 @@
+local LuauPolyfill = require(script.Parent.Parent.LuauPolyfill)
+
+type Promise<T> = LuauPolyfill.Promise<T>
+
 export type ModalState = {
 	id: string,
 	args: { [string]: unknown }?,
@@ -23,13 +27,13 @@ export type ModalCallbacks = {
 	[string]: {
 		resolve: (args: unknown) -> ()?,
 		reject: (args: unknown) -> ()?,
-		promise: unknown,
+		promise: Promise<unknown>,
 	},
 }
 
 export type ModalHandler<Props> = ModalState & {
-	show: (args: Props?) -> unknown,
-	hide: () -> unknown,
+	show: (args: Props?) -> Promise<unknown>,
+	hide: () -> Promise<unknown>,
 	resolve: (args: unknown) -> (),
 	reject: (args: unknown) -> (),
 	remove: () -> (),
