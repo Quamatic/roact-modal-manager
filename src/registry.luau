@@ -25,7 +25,9 @@ local function isRegistered(id: string)
 	return modalRegistry[id] ~= nil
 end
 
-local function isMounted(id: string) end
+local function isMounted(id: string)
+	return alreadyMounted:has(id)
+end
 
 local function getModal(id: string)
 	return modalRegistry[id]
