@@ -1,6 +1,7 @@
 local React = require(script.Parent.Parent.React)
 
 local registry = require(script.Parent.registry)
+local register, unregister = registry.register, registry.unregister
 
 local function ModalDef(props: {
 	id: string,
@@ -10,10 +11,10 @@ local function ModalDef(props: {
 	local component = props.component
 
 	React.useEffect(function()
-		registry.register(id, component)
+		register(id, component)
 
 		return function()
-			registry.unregister(id)
+			unregister(id)
 		end
 	end, { id, component })
 
