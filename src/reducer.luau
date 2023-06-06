@@ -1,6 +1,9 @@
 local LuauPollyfill = require(script.Parent.Parent.LuauPolyfill)
 local Object = LuauPollyfill.Object
 
+local registry = require(script.Parent.registry)
+local isMounted = registry.isMounted
+
 local types = require(script.Parent["types.d"])
 
 type ModalStore = types.ModalStore
@@ -15,10 +18,14 @@ local function reducer(state: ModalStore, action: ModalAction)
 		local modalId = action.payload.modalId
 		local args = action.payload.args
 
+		local isModalMounted = isMounted(modalId)
+
 		return Object.assign({}, state, {
 			[modalId] = Object.assign({}, state[modalId], {
 				id = modalId,
 				args = args,
+				visible = not not isModalMounted,
+				delayVisible = not not isModalMounted,
 			}),
 		})
 	elseif action.type == "modal/hide" then
